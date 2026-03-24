@@ -4,19 +4,20 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: var(--surface);
+  background-color: var(--background); /* Pure white start */
   transition: all 0.3s ease;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid transparent;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .header.scrolled {
   background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: var(--shadow-md);
   padding: 0.8rem 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .header-container {
@@ -28,12 +29,7 @@
 .logo-text {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--primary);
-  letter-spacing: -0.02em;
-}
-
-.logo-accent {
-  color: var(--accent);
+  letter-spacing: -0.04em;
 }
 
 .desktop-nav {
@@ -46,34 +42,43 @@
   align-items: center;
 }
 
-.phone-cta {
-  font-weight: 700;
-  color: var(--primary);
-  transition: color var(--transition);
-}
-
-.phone-cta:hover {
-  color: var(--accent);
-}
-
 .nav-link {
-  font-weight: 600;
-  color: var(--text-main);
+  color: var(--text-muted);
   transition: color var(--transition);
   font-size: 0.95rem;
+  position: relative;
 }
 
 .nav-link:hover {
-  color: var(--accent);
+  color: var(--primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--secondary);
+  transition: width var(--transition);
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .mobile-menu-btn {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--primary);
   display: flex;
   align-items: center;
+  transition: transform 0.2s;
+}
+
+.mobile-menu-btn:active {
+  transform: scale(0.95);
 }
 
 .mobile-nav-overlay {
@@ -81,7 +86,7 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: var(--surface);
+  background-color: var(--background);
   box-shadow: var(--shadow-md);
   padding: 1.5rem;
   border-top: 1px solid var(--border);
@@ -94,18 +99,15 @@
   padding: 1rem 0;
   font-size: 1.1rem;
   font-weight: 600;
-  border-bottom: 1px solid var(--border);
+  color: var(--primary);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .mobile-cta {
-  margin-top: 1.5rem;
   display: flex;
 }
 
 @media (min-width: 900px) {
-  .header {
-    background-color: transparent;
-  }
   .desktop-nav {
     display: flex;
   }
