@@ -1,0 +1,117 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 85vh; /* Large impactful hero */
+  display: flex;
+  align-items: center;
+  background-color: var(--primary); /* Base fallback */
+  color: var(--surface);
+  margin-top: 70px; /* Offset for sticky header */
+  overflow: hidden;
+}
+
+.hero-default-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, var(--primary-light), var(--primary) 70%);
+  z-index: 1;
+}
+
+/* Add an overlay pattern for a premium tech feel */
+.hero-default-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 2;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 10;
+  max-width: 900px; /* Keep text readable */
+  margin: 0 auto;
+}
+
+.hero-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title {
+  color: var(--surface);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  color: #E2E8F0;
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  max-width: 750px;
+}
+
+.hero-actions {
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.trust-signals {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.trust-stars {
+  color: #FFB800;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+}
+
+.trust-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--surface);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 70vh;
+  }
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .hero-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
